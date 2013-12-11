@@ -1,54 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <extension type="plugin" version="2.5" group="system" method="upgrade">
-    <name>System - EasyCalcCheck PLUS - ECC+</name>
-    <version>2.5-3</version>
-    <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+    <name>PLG_ECC</name>
+    <version>2.5-8</version>
+    <creationDate>2013-11-15</creationDate>
+    <license>http://www.gnu.org/licenses/gpl-3.0</license>
+    <copyright>Copyright 2013 Viktor Vogel. All rights reserved.</copyright>
     <author>Viktor Vogel</author>
     <authoremail>admin@kubik-rubik.de</authoremail>
-    <authorurl>http://www.kubik-rubik.de</authorurl>
-    <copyright>Copyright 2012 Viktor Vogel. All rights reserved.</copyright>
-    <creationDate>20-Jun-2012</creationDate>
+    <authorurl>http://joomla-extensions.kubik-rubik.de</authorurl>
     <description>PLG_ECC_XML_DESCRIPTION</description>
-    <files folder="site">
+    <files>
         <filename plugin="easycalccheckplus">easycalccheckplus.php</filename>
-        <filename plugin="easycalccheckplus">easycalccheckplus/warning.png</filename>
-        <filename plugin="easycalccheckplus">easycalccheckplus/akismet.php</filename>
-        <filename plugin="easycalccheckplus">easycalccheckplus/mollom.php</filename>
-        <filename plugin="easycalccheckplus">easycalccheckplus/honeypot.php</filename>
-        <filename plugin="easycalccheckplus">easycalccheckplus/recaptchalib.php</filename>
-        <filename plugin="easycalccheckplus">bottrap/page.restrictor.log</filename>
+        <filename plugin="easycalccheckplus">index.html</filename>
+        <folder plugin="easycalccheckplus">bottrap</folder>
+        <folder plugin="easycalccheckplus">easycalccheckplus</folder>
         <folder plugin="easycalccheckplus">fields</folder>
     </files>
-    <languages folder="site/language">
-        <language tag="de-DE">de-DE/de-DE.plg_system_easycalccheckplus.ini</language>
-        <language tag="de-DE">de-DE/de-DE.plg_system_easycalccheckplus.sys.ini</language>
+    <languages folder="language">
         <language tag="en-GB">en-GB/en-GB.plg_system_easycalccheckplus.ini</language>
         <language tag="en-GB">en-GB/en-GB.plg_system_easycalccheckplus.sys.ini</language>
-        <language tag="hu-HU">hu-HU/hu-HU.plg_system_easycalccheckplus.ini</language>
-        <language tag="hu-HU">hu-HU/hu-HU.plg_system_easycalccheckplus.sys.ini</language>
-        <language tag="ru-RU">ru-RU/ru-RU.plg_system_easycalccheckplus.ini</language>
-        <language tag="ru-RU">ru-RU/ru-RU.plg_system_easycalccheckplus.sys.ini</language>
-        <language tag="fr-FR">fr-FR/fr-FR.plg_system_easycalccheckplus.ini</language>
-        <language tag="fr-FR">fr-FR/fr-FR.plg_system_easycalccheckplus.sys.ini</language>
-        <language tag="it-IT">it-IT/it-IT.plg_system_easycalccheckplus.ini</language>
-        <language tag="it-IT">it-IT/it-IT.plg_system_easycalccheckplus.sys.ini</language>
-        <language tag="sr-RS">sr-RS/sr-RS.plg_system_easycalccheckplus.ini</language>
-        <language tag="sr-RS">sr-RS/sr-RS.plg_system_easycalccheckplus.sys.ini</language>
-        <language tag="sr-YU">sr-YU/sr-YU.plg_system_easycalccheckplus.ini</language>
-        <language tag="sr-YU">sr-YU/sr-YU.plg_system_easycalccheckplus.sys.ini</language>
-        <language tag="cs-CZ">cs-CZ/cs-CZ.plg_system_easycalccheckplus.ini</language>
-        <language tag="cs-CZ">cs-CZ/cs-CZ.plg_system_easycalccheckplus.sys.ini</language>
-        <language tag="nl-NL">nl-NL/nl-NL.plg_system_easycalccheckplus.ini</language>
-        <language tag="nl-NL">nl-NL/nl-NL.plg_system_easycalccheckplus.sys.ini</language>
-        <language tag="da-DK">da-DK/da-DK.plg_system_easycalccheckplus.ini</language>
-        <language tag="da-DK">da-DK/da-DK.plg_system_easycalccheckplus.sys.ini</language>
-        <language tag="zh-TW">zh-TW/zh-TW.plg_system_easycalccheckplus.ini</language>
-        <language tag="zh-TW">zh-TW/zh-TW.plg_system_easycalccheckplus.sys.ini</language>
+        <language tag="de-DE">de-DE/de-DE.plg_system_easycalccheckplus.ini</language>
+        <language tag="de-DE">de-DE/de-DE.plg_system_easycalccheckplus.sys.ini</language>
     </languages>
     <config>
         <fields name="params" addfieldpath="/plugins/system/easycalccheckplus/fields">
             <fieldset name="basic">
                 <field type="krdonationcodecheck" />
+                <field type="krversioncheck" name="krversioncheck" default="ecc|2.5-8" />
+                <field type="krtitle" name="spacer_internalchecks_output" label="PLG_ECC_SPACER_INTERNALCHECKS_OUTPUT" />
                 <field name="type_calc" type="list" default="1" label="PLG_ECC_CALCCHECK" description="PLG_ECC_CALCCHECKDESC">
                     <option value="1">JYES</option>
                     <option value="0">JNO</option>
@@ -56,7 +35,7 @@
                 <field name="operator" type="list" default="2" label="PLG_ECC_OPERATOR" description="PLG_ECC_OPERATORDESC">
                     <option value="0">+</option>
                     <option value="1">-</option>
-                    <option value="2">RANDOM</option>
+                    <option value="2">PLG_ECC_RANDOM</option>
                 </field>
                 <field name="operand" type="list" default="2" label="PLG_ECC_OPERAND" description="PLG_ECC_OPERANDDESC">
                     <option value="2">2</option>
@@ -80,6 +59,13 @@
                     <option value="0">JNO</option>
                 </field>
                 <field name="type_time_sec" type="text" default="5" label="PLG_ECC_TIMEHIDDENSEC" description="PLG_ECC_TIMEHIDDENSECDESC" />
+                <field name="question" type="list" default="0" label="PLG_ECC_QUESTION" description="PLG_ECC_QUESTIONDESC">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="question_q" type="text" default="" size="40" label="PLG_ECC_QUESTIONQ" description="PLG_ECC_QUESTIONQDESC" />
+                <field name="question_a" type="text" default="" size="40" label="PLG_ECC_QUESTIONA" description="PLG_ECC_QUESTIONADESC" />
+                <field type="krtitle" name="spacer_recaptcha" label="PLG_ECC_SPACER_RECAPTCHA" />
                 <field name="recaptcha" type="list" default="0" label="PLG_ECC_RECAPTCHA" description="PLG_ECC_RECAPTCHADESC">
                     <option value="1">JYES</option>
                     <option value="0">JNO</option>
@@ -90,16 +76,11 @@
                     <option value="2">Blackglass</option>
                     <option value="3">Clean</option>
                 </field>
-                <field name="recaptcha_publickey" type="text" default="" size="60" label="PLG_ECC_RECAPTCHAPUBLICKEY" description="PLG_ECC_RECAPTCHAPUBLICKEYDESC" />
-                <field name="recaptcha_privatekey" type="text" default="" size="60" label="PLG_ECC_RECAPTCHAPRIVATEKEY" description="PLG_ECC_RECAPTCHAPRIVATEKEYDESC" />
-                <field name="question" type="list" default="0" label="PLG_ECC_QUESTION" description="PLG_ECC_QUESTIONDESC">
-                    <option value="1">JYES</option>
-                    <option value="0">JNO</option>
-                </field>
-                <field name="question_q" type="text" default="" size="50" label="PLG_ECC_QUESTIONQ" description="PLG_ECC_QUESTIONQDESC" />
-                <field name="question_a" type="text" default="" size="50" label="PLG_ECC_QUESTIONA" description="PLG_ECC_QUESTIONADESC" />
+                <field name="recaptcha_publickey" type="text" default="" size="40" label="PLG_ECC_RECAPTCHAPUBLICKEY" description="PLG_ECC_RECAPTCHAPUBLICKEYDESC" />
+                <field name="recaptcha_privatekey" type="text" default="" size="40" label="PLG_ECC_RECAPTCHAPRIVATEKEY" description="PLG_ECC_RECAPTCHAPRIVATEKEYDESC" />
             </fieldset>
             <fieldset name="PLG_ECC_EXTRA">
+                <field type="krtitle" name="spacer_core" label="PLG_ECC_SPACER_CORE" />
                 <field name="user_reg" type="list" default="1" label="PLG_ECC_USERREGISTRATION" description="PLG_ECC_USERREGISTRATIONDESC">
                     <option value="1">JYES</option>
                     <option value="0">JNO</option>
@@ -110,6 +91,11 @@
                 </field>
                 <field name="user_login_attempts" type="text" default="3" size="10" label="PLG_ECC_USERLOGINATTEMPTS" description="PLG_ECC_USERLOGINATTEMPTSDESC" />
                 <field name="contact" type="list" default="1" label="PLG_ECC_CONTACTFORM" description="PLG_ECC_CONTACTFORMDESC">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field type="krtitle" name="spacer_3rdparty" label="PLG_ECC_SPACER_3RDPARTY" />
+                <field name="aicontactsafe" type="list" default="0" label="PLG_ECC_AICONTACTSAFE" description="PLG_ECC_AICONTACTSAFEDESC">
                     <option value="1">JYES</option>
                     <option value="0">JNO</option>
                 </field>
@@ -137,6 +123,10 @@
                     <option value="1">JYES</option>
                     <option value="0">JNO</option>
                 </field>
+                <field name="flexicontactplus" type="list" default="0" label="PLG_ECC_FLEXICONTACTPLUS" description="PLG_ECC_FLEXICONTACTPLUSDESC">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
                 <field name="jomsocial" type="list" default="0" label="PLG_ECC_JOMSOCIAL" description="PLG_ECC_JOMSOCIALDESC">
                     <option value="1">JYES</option>
                     <option value="0">JNO</option>
@@ -153,6 +143,7 @@
                     <option value="1">JYES</option>
                     <option value="0">JNO</option>
                 </field>
+                <field type="krtitle" name="spacer_output" label="PLG_ECC_SPACER_OUTPUT" />
                 <field name="autofill_values" type="list" default="1" label="PLG_ECC_KEEPVALUES" description="PLG_ECC_KEEPVALUESDESC">
                     <option value="1">JYES</option>
                     <option value="0">JNO</option>
@@ -169,21 +160,35 @@
                     <option value="1">JYES</option>
                     <option value="0">JNO</option>
                 </field>
-                <field name="string_alternative" type="textarea" default="" filter="raw" label="PLG_ECC_STRINGALTERNATIVE" description="PLG_ECC_STRINGALTERNATIVEDESC" rows="3" cols="25" />
                 <field name="poweredby" type="list" default="1" label="PLG_ECC_POWEREDBY" description="PLG_ECC_POWEREDBYDESC">
                     <option value="1">JYES</option>
                     <option value="0">JNO</option>
                 </field>
-            </fieldset>
-            <fieldset name="PLG_ECC_BOTSTOP">
-                <field name="stopforumspam" type="list" default="0" label="PLG_ECC_STOPFORUMSPAM" description="PLG_ECC_STOPFORUMSPAMDESC">
+                <field name="string_alternative" type="textarea" default="" filter="raw" label="PLG_ECC_STRINGALTERNATIVE" description="PLG_ECC_STRINGALTERNATIVEDESC" rows="3" cols="25" />
+                <field name="custom_call" type="list" default="0" label="PLG_ECC_CUSTOMCALL" description="PLG_ECC_CUSTOMCALLDESC">
                     <option value="1">JYES</option>
                     <option value="0">JNO</option>
                 </field>
+                <field type="krtitle" name="spacer_backend" label="PLG_ECC_SPACER_BACKEND" />
+                <field name="backendprotection" type="list" default="0" label="PLG_ECC_BACKENDPROTECTION" description="PLG_ECC_BACKENDPROTECTIONDESC">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="token" type="text" default="" label="PLG_ECC_TOKEN" description="PLG_ECC_TOKENDESC" />
+                <field name="urlfalsetoken" type="text" default="" size="40" label="PLG_ECC_URLFALSETOKEN" description="PLG_ECC_URLFALSETOKENDESC" />
+                <field type="krtitle" name="spacer_internalchecks" label="PLG_ECC_SPACER_INTERNALCHECKS" />
                 <field name="sqlinjection-lfi" type="list" default="0" label="PLG_ECC_SQLINJECTIONANDLOCALFILEINCLUSION" description="PLG_ECC_SQLINJECTIONANDLOCALFILEINCLUSIONDESC">
                     <option value="1">JYES</option>
                     <option value="0">JNO</option>
                 </field>
+            </fieldset>
+            <fieldset name="PLG_ECC_ANTISPAMSERVICES">
+                <field type="krtitle" name="spacer_antispam_noregistration" label="PLG_ECC_SPACER_ANTISPAM_NOREGISTRATION" />
+                <field name="stopforumspam" type="list" default="0" label="PLG_ECC_STOPFORUMSPAM" description="PLG_ECC_STOPFORUMSPAMDESC">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field type="krtitle" name="spacer_antispam_freeregistration" label="PLG_ECC_SPACER_ANTISPAM_FREEREGISTRATION" />
                 <field name="honeypot" type="list" default="0" label="PLG_ECC_HONEYPOT" description="PLG_ECC_HONEYPOTDESC">
                     <option value="1">JYES</option>
                     <option value="0">JNO</option>
@@ -198,15 +203,14 @@
                     <option value="1">JYES</option>
                     <option value="0">JNO</option>
                 </field>
-                <field name="mollom_publickey" type="text" default="" size="50" label="PLG_ECC_MOLLOMPUBLICKEY" description="PLG_ECC_MOLLOMPUBLICKEYDESC" />
-                <field name="mollom_privatekey" type="text" default="" size="50" label="PLG_ECC_MOLLOMPRIVATEKEY" description="PLG_ECC_MOLLOMPRIVATEKEYDESC" />
+                <field name="mollom_publickey" type="text" default="" size="40" label="PLG_ECC_MOLLOMPUBLICKEY" description="PLG_ECC_MOLLOMPUBLICKEYDESC" />
+                <field name="mollom_privatekey" type="text" default="" size="40" label="PLG_ECC_MOLLOMPRIVATEKEY" description="PLG_ECC_MOLLOMPRIVATEKEYDESC" />
                 <field name="botscout" type="list" default="0" label="PLG_ECC_BOTSCOUT" description="PLG_ECC_BOTSCOUTDESC">
                     <option value="1">JYES</option>
                     <option value="0">JNO</option>
                 </field>
                 <field name="botscout_key" type="text" default="" label="PLG_ECC_BOTSCOUTKEY" description="PLG_ECC_BOTSCOUTKEYDESC" />
-            </fieldset>
-            <fieldset name="PLG_ECC_BOTTRAPDEFAULT">
+                <field type="krtitle" name="spacer_antispam_bottrap" label="PLG_ECC_SPACER_ANTISPAM_BOTTRAPDEFAULT" />
                 <field name="bottrap" type="list" default="0" label="PLG_ECC_BOTTRAP" description="PLG_ECC_BOTTRAPDESC">
                     <option value="1">JYES</option>
                     <option value="0">JNO</option>
@@ -218,16 +222,15 @@
                 <field name="btBlacklistIPRange" type="textarea" default="" label="PLG_ECC_BTBLACKLISTIPRANGE" description="PLG_ECC_BTBLACKLISTIPRANGEDESC" rows="3" cols="25" />
                 <field name="btBlacklistUA" type="textarea" default="" label="PLG_ECC_BTBLACKLISTUA" description="PLG_ECC_BTBLACKLISTUADESC" rows="3" cols="25" />
             </fieldset>
-            <fieldset name="PLG_ECC_BACKEND">
-                <field name="backendprotection" type="list" default="0" label="PLG_ECC_BACKENDPROTECTION" description="PLG_ECC_BACKENDPROTECTIONDESC">
-                    <option value="1">JYES</option>
-                    <option value="0">JNO</option>
-                </field>
-                <field name="token" type="text" default="" label="PLG_ECC_TOKEN" description="PLG_ECC_TOKENDESC" />
-                <field name="urlfalsetoken" type="text" default="" size="40" label="PLG_ECC_URLFALSETOKEN" description="PLG_ECC_URLFALSETOKENDESC" />
-            </fieldset>
             <fieldset name="donation">
                 <field name="donation_code" type="text" default="" size="40" label="KR_DONATION_CODE" description="KR_DONATION_CODEDESC" />
+            </fieldset>
+            <fieldset name="versioncheck">
+                <field name="versioncheck_enable" type="list" default="1" label="KR_VERSION_CHECK" description="KR_VERSION_CHECKDESC">
+                    <option value="1">KR_VERSION_CHECK_ONCESESSION</option>
+                    <option value="2">KR_VERSION_CHECK_ONEVERYLOAD</option>
+                    <option value="0">JNO</option>
+                </field>
             </fieldset>
         </fields>
     </config>
